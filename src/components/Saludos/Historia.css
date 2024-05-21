@@ -1,0 +1,86 @@
+.container-historia {
+  display: block;
+  position: relative;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.imagen-historia {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  image-rendering: smooth;
+}
+
+/* @media screen and (width < 570px) {
+  .imagen-historia {
+    height: 100%;
+    width: auto;
+  }
+} */
+
+.historia {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  background-color: #ff0404;
+  left: 95%;
+  box-sizing: border-box;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  padding: 0 max(3em, 10vw);
+  justify-content: space-evenly;
+  transition: left 0.3s;
+
+  & p {
+    font-size: max(1.1em, 2.5vw);
+    text-align: justify;
+    color: #fff;
+  }
+
+  & > img {
+    filter: invert(100%);
+    max-width: max(5em, 10vw);
+  }
+
+  &.desplegado {
+    left: 0vw;
+  }
+
+}
+
+.historia .desplegar-historia {
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  background: inherit;
+
+  &.desplegado {
+    background: #fff;
+  }
+
+  & #flecha {
+
+    width: 25px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    transform: rotate(90deg);
+    filter: invert(100%);
+  
+    &.desplegado {
+      transform: rotate(-90deg);
+      left: 65px;
+      filter: saturate(100%);
+      filter: hue-rotate(120deg);
+    }
+  
+  }
+}

@@ -1,0 +1,180 @@
+#formulario,
+#confirmado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px #fff solid;
+  border-radius: 15px;
+  padding: 2.85vw;
+  background: rgba(255, 255, 255, 0.6);
+  transition: opacity 1.5s;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.28vw;
+  overflow: hidden;
+}
+
+#formulario.transicion-formulario {
+  opacity: 0;
+}
+
+#numeroPases {
+  color: var(--dorado);
+  font-size: 20.28vw;
+  text-shadow: 0 0 5px #000;
+}
+
+.titulo-pases {
+  font-weight: lighter;
+  font-size: 13.57vw;
+}
+
+.btn {
+  font-size: 3.85vw;
+  padding: 1.28vw;
+  border-radius: 15px;
+  border: 2px solid #aaa;
+  background: rgba(200, 200, 200, 0.6);
+}
+
+.btn.inicio {
+  font-size: 6.57vw;
+}
+
+.btn.primary:hover {
+  background: rgba(78,56,92, 0.6);
+}
+
+.btn:hover,
+.btn:active {
+  border-color: #fff;
+  background: rgba(230, 230, 230, 0.6);
+  transition-duration: 1s;
+}
+
+.texto-formulario {
+  font-size: 3.92vw;
+}
+
+.marco-formulario {
+  background: #fff;
+  border-radius: 5px;
+  border: 1px var(--dorado) solid;
+}
+
+.texto-formulario.nombres {
+  font-weight: bold;
+  padding: 1.42vw;
+  list-style: none;
+}
+
+.texto-formulario.dorado {
+  color: var(--dorado);
+  text-shadow: 0 0 2px #aaa;
+}
+
+.texto-formulario input[type="checkbox"] {
+  margin-right: 1.14vw;
+  border: 2px solid #4e385c; /* Cambia el color del borde según tus preferencias */
+  border-radius: 4px;
+}
+
+#celular-formulario {
+  padding: 1.14vw;
+  font-size: 5.71vw;
+  text-align: center;
+  outline: none;
+  border-color: #4e385c;
+  border-radius: 5px;
+  transition: border-color 1s;
+}
+
+#celular-formulario:focus {
+  border-color: #fff;
+}
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #4e385c; /* Blue border */
+  border-radius: 50%;
+  width: 7.14vw;
+  height: 7.14vw;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.atencion-clientes {
+  padding: 10px 20px;
+  color: #000; /* Color del texto */
+  background-color: var(--dorado); /* Color de fondo */
+  border-radius: 10px; /* Esquinas redondeadas */
+  text-decoration: none; /* Eliminar subrayado predeterminado de los enlaces */
+  font-weight: bold; /* Texto en negrita */
+  width: fit-content;
+  align-self: center;
+}
+
+@media (min-width: 700px) {
+  #formulario,
+  #confirmado {
+    border-radius: 15px;
+    padding: 20px;
+    gap: 9px;
+  }
+
+  #numeroPases {
+    font-size: 142px;
+  }
+
+  .titulo-pases {
+    font-size: 95px;
+  }
+
+  .btn {
+    font-size: 27px;
+    padding: 9px;
+  }
+
+  .btn.inicio {
+    font-size: 46px;
+  }
+
+  .texto-formulario {
+    font-size: 27.5px;
+  }
+
+  .texto-formulario.nombres {
+    padding: 10px;
+  }
+
+  .texto-formulario input[type="checkbox"] {
+    margin-right: 8px;
+  }
+
+  #celular-formulario {
+    padding: 8px;
+    font-size: 40px;
+  }
+
+  .loader {
+    width: 50px;
+    height: 50px;
+  }
+}

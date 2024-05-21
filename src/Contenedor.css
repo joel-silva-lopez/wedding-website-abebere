@@ -1,0 +1,293 @@
+.container {
+  position: relative;
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  max-width: 700px; /* Establece un ancho máximo para evitar que el margen sea demasiado ancho en pantallas grandes */
+  --dorado: #aa9b6d;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/artwork.png") center/cover no-repeat;
+  filter: blur(12px); /* Mayor desenfoque para la imagen de fondo */
+  z-index: -1; /* Coloca la imagen de fondo detrás de los demás elementos */
+}
+
+.main-container {
+  text-align: center;
+  position: relative;
+  margin: 10px 10px; /* Espaciado opcional alrededor de la imagen */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Evita que las esquinas redondeadas afecten al contenido interno */
+}
+
+.main-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+#bienvenida {
+  margin-top: -24.28vw;
+  position: relative;
+}
+.contenedor-imagen {
+  position: relative;
+}
+
+.texto-invitado,
+.titulo-invitado,
+.saludo-invitado {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  color: var(--dorado);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.titulo-invitado {
+  top: 40%;
+  font-weight: bold;
+  font-size: 8vw;
+  opacity: 0;
+  transform: translateX(50%);
+  transition: opacity 3s, transform 3s;
+}
+
+.saludo-invitado {
+  top: 60%;
+  font-size: 4.5vw;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 3s, transform 3s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.contenedor-salones {
+  position: relative;
+
+  & .direccion {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    color: #000; /* Color del texto */
+    background-color: var(--dorado); /* Color de fondo */
+    border-radius: 10px; /* Esquinas redondeadas */
+    text-decoration: none; /* Eliminar subrayado predeterminado de los enlaces */
+    font-weight: bold; /* Texto en negrita */
+  }
+
+  & #salon1,
+  #salon2 {
+    font-size: 2.28vw;
+  }
+
+  & #salon1 {
+    top: 57.14vw;
+  }
+
+  & #salon2 {
+    top: 100vw;
+  }
+}
+
+#footer {
+  background: var(--dorado);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-size: 2.14vw;
+
+  & #logo-footer {
+    filter: invert(100%);
+    max-width: 50px;
+    margin: 5px;
+  }
+}
+
+.contenedor-formulario {
+  position: relative;
+}
+
+.container-mensaje {
+  background: #fff;
+  position: relative;
+}
+
+.container-texto-mensaje {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.texto-mensaje {
+  width: 80%;
+  font-size: 4.5vw;
+  animation: animacionCrecerTexto 2s ease-in-out infinite alternate;
+}
+
+@keyframes animacionCrecerTexto {
+  from {
+    transform: scale(1); /* Tamaño inicial */
+  }
+  to {
+    transform: scale(
+      1.1
+    ); /* Tamaño final, puedes ajustar el factor de escala según tus preferencias */
+  }
+}
+
+.container-vestimenta {
+  background: #fff;
+  font-size: 4.5vw;
+  color: var(--dorado);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: stretch;
+  gap: 20px;
+
+  & #img-vestimenta {
+    border-radius: 50px;
+    border: 2px var(--dorado) solid;
+  }
+
+  & img {
+    width: 50%;
+  }
+}
+
+.container-anuncio {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 50px;
+  padding-bottom: 50px;
+  font-size: 4.5vw;
+  & p {
+    color: var(--dorado);
+    width: 80%;
+    text-align: center;
+  }
+
+  & img {
+    width: 50%;
+  }
+
+}
+
+.container-redes {
+  padding-top: 50px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+
+  .card {
+    width: 60%;
+    border-radius: 25px;
+    background: var(--dorado);
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    & img {
+      filter: brightness(0) invert(1);
+      width: 50%;
+    }
+
+    .texto-redes {
+      width: 60%;
+      color: #fff;
+      padding: 40px 0px;
+      font-weight: bolder;
+      font-size: large;
+    }
+
+    .hashtag {
+      border: 1px #fff solid;
+      border-radius: 25px;
+      padding: 10px;
+      color: var(--dorado);
+      background: #fff;
+      font-weight: bolder;
+      font-size: 3.57vw;
+    }
+
+  }
+}
+
+@media (min-width: 701px) {
+  .main-container {
+    max-width: 700px;
+  }
+
+  .titulo-invitado {
+    font-size: 56px;
+  }
+
+  .saludo-invitado {
+    font-size: 31px;
+  }
+
+  #bienvenida {
+    margin-top: -170px;
+  }
+
+  #salon1,
+  #salon2 {
+    font-size: 16px !important;
+  }
+
+  #salon1 {
+    top: 400px !important;
+  }
+
+  #salon2 {
+    top: 700px !important;
+  }
+
+  #footer {
+    font-size: 15px;
+  }
+
+  .texto-mensaje {
+    font-size: 31px;
+  }
+  .container-vestimenta {
+    font-size: 31px;
+  }
+  .container-anuncio {
+    font-size: 31px;
+  }
+  
+  .hashtag {
+    font-size: 25px !important;
+  }
+
+}
