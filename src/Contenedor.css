@@ -2,7 +2,7 @@
   position: relative;
   margin: 0 auto; /* Centra el contenedor horizontalmente */
   max-width: 700px; /* Establece un ancho máximo para evitar que el margen sea demasiado ancho en pantallas grandes */
-  --dorado: #aa9b6d;
+  --dorado: #548eb4;
 }
 
 .background-image {
@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/artwork.png") center/cover no-repeat;
+  background: url("/artwork.jpg") center/cover no-repeat;
   filter: blur(12px); /* Mayor desenfoque para la imagen de fondo */
   z-index: -1; /* Coloca la imagen de fondo detrás de los demás elementos */
 }
@@ -33,10 +33,15 @@
 }
 
 #bienvenida {
-  margin-top: -24.28vw;
+  margin-top: -10.71vw;
   position: relative;
 }
 .contenedor-imagen {
+  position: relative;
+}
+
+#cronometro-container {
+  margin-top: -28.53vw;
   position: relative;
 }
 
@@ -78,7 +83,7 @@
 
 .contenedor-salones {
   position: relative;
-
+ 
   & .direccion {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -124,6 +129,32 @@
   position: relative;
 }
 
+.container-regalos {
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 17.11vw;
+}
+
+.img-regalos {
+  width: 30%;
+}
+
+.text-regalos {
+  width: 50%;
+  text-align: center;
+  font-size: 4.27vw;
+}
+
+.webshoot {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
 .container-mensaje {
   background: #fff;
   position: relative;
@@ -155,6 +186,36 @@
     transform: scale(
       1.1
     ); /* Tamaño final, puedes ajustar el factor de escala según tus preferencias */
+  }
+}
+
+.container-padres {
+  background: #fff;
+  font-size: 4.5vw;
+  color: var(--dorado);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: stretch;
+  gap: 20px;
+  padding-bottom: 50px;
+
+  & #img-padres {
+    border-radius: 50px;
+    border: 2px var(--dorado) solid;
+  }
+
+  & img {
+    width: 50%;
+  }
+
+  & p {
+    width: 50%;
+  }
+
+  & span {
+    font-weight: bold
   }
 }
 
@@ -256,7 +317,11 @@
   }
 
   #bienvenida {
-    margin-top: -170px;
+    margin-top: -75px;
+  }
+
+  #cronometro-container {
+    margin-top: -200px;
   }
 
   #salon1,
@@ -276,7 +341,18 @@
     font-size: 15px;
   }
 
+  .container-regalos {
+    padding-bottom: 120px;
+  }
+
+  .text-regalos {
+    font-size: 30px;
+  }
+
   .texto-mensaje {
+    font-size: 31px;
+  }
+  .container-padres {
     font-size: 31px;
   }
   .container-vestimenta {

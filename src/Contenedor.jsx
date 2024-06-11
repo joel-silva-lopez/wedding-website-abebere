@@ -7,31 +7,43 @@ import { useEffect, useState, useRef } from "react";
 import { apiwedding } from "./hooks/WeddingHook";
 
 export const Contenedor = ({ confirmacionInfo, setConfirmacionInfo }) => {
-
   return (
     <>
       <div className="container">
         <div className="background-image"></div>
 
         <div className="main-container">
-          <img src="/portada.png" alt="Imagen de portada" />
+          <img src="/portada.jpeg" alt="Imagen de portada" />
 
           <div id="bienvenida">
             <img src="/bienvenida.png" alt="Bienvenida" />
-            <Cronometro targetDate={new Date("2024-02-10 19:00:00")} />
           </div>
 
-          <Saludos strSaludos={confirmacionInfo?.saludo} strTitulo={confirmacionInfo?.titulo}/>
+          <div id="cronometro-container" style={{ zIndex: -1 }}>
+            <img src="/cronometro.png" alt="Foto aninos" />
+            <Cronometro targetDate={new Date("2024-10-25 16:00:00")} />
+          </div>
 
-          <Historia imagen="/foto-juntos.png" />
+          <Saludos
+            strSaludos={confirmacionInfo?.saludo}
+            strTitulo={confirmacionInfo?.titulo}
+          />
+
+          <img src="/separacion.png" alt="Separacion" />
+
+          <Padres />
+
+          <Historia imagen="/foto-juntos.jpeg" />
 
           <Salones />
 
-          <img src="/itinerario.png" alt="Itinerario" />
+          <img src="/itinerario.jpg" alt="Itinerario" />
 
           <Vestimenta />
 
           <Mensaje />
+
+          <Regalos />
 
           <Anuncio />
 
@@ -42,7 +54,16 @@ export const Contenedor = ({ confirmacionInfo, setConfirmacionInfo }) => {
 
           <Redes />
 
-          <img src="/fotos-novios.png" alt="Fotos de los novios" />
+          <div className="webshoot">
+            <img
+            style={{ backgroundColor: "#fff", width: '60%' }}
+            src="/webshoot.jpg"
+            alt=""
+          />
+
+          </div>
+          
+          <img src="/nosotros.jpg" alt="Fotos de los novios" />
 
           <div id="footer">
             <h2>GRACIAS POR ASISTIR ❤</h2>
@@ -58,21 +79,28 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
   const sendConfirmacionInfo = () => {
     console.log("Enviando informacion...");
     console.log(confirmacionInfo);
-    const response = apiwedding.confirmarInvitacion(confirmacionInfo._id, { celularConfirmado: confirmacionInfo.celularConfirmado, invitadosConfirmados: confirmacionInfo.invitadosConfirmados.map(invitado => invitado._id) });
+    /* const response = apiwedding.confirmarInvitacion(confirmacionInfo._id, {
+      celularConfirmado: confirmacionInfo.celularConfirmado,
+      invitadosConfirmados: confirmacionInfo.invitadosConfirmados.map(
+        (invitado) => invitado._id
+      ),
+    });
 
+    response
+      .then((res) => {
+        if (!res.ok) {
+          alert(
+            `Error al confirmar la invitación - Código: ${response.status}`
+          );
+        } else {
+          setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
+        }
+      })
+      .catch((error) => {
+        alert(`Error al confirmar la invitación - error: ${error}`);
+      }); */
 
-    response.then((res) => {
-      if (!res.ok) {
-        alert(`Error al confirmar la invitación - Código: ${response.status}`);
-      }else {
-        setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
-      }
-      
-    }).catch((error) => {
-      alert(`Error al confirmar la invitación - error: ${error}`);
-    })
-    
-
+      setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
   };
 
   return (
@@ -87,7 +115,7 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
       ) : (
         <Confirmado
           invitadosSeleccionados={confirmacionInfo.invitadosConfirmados}
-          family_id={confirmacionInfo['_id']}
+          family_id={confirmacionInfo["_id"]}
         />
       )}
     </div>
@@ -121,9 +149,7 @@ const Saludos = ({ strTitulo, strSaludos }) => {
       <img src="/invitado.png" alt="Saludos a Invitado" />
       <div>
         <span className="texto-invitado titulo-invitado">{strTitulo}</span>
-        <span className="texto-invitado saludo-invitado">
-          {strSaludos}
-        </span>
+        <span className="texto-invitado saludo-invitado">{strSaludos}</span>
       </div>
     </div>
   );
@@ -132,20 +158,12 @@ const Saludos = ({ strTitulo, strSaludos }) => {
 const Salones = () => {
   return (
     <div className="contenedor-salones">
-      <img src="/salones.png" alt="Localizacion de Salones de eventos" />
+      <img src="/Salon.jpg" alt="Localizacion de Salones de eventos" />
       <a
-        href="https://maps.app.goo.gl/yqSpVif9kiDVh1EFA"
+        href="https://maps.app.goo.gl/kbN5UVQw9cFBhdZF8"
         target="_blank"
         className="direccion"
         id="salon1"
-      >
-        ¿CÓMO LLEGAR?
-      </a>
-      <a
-        href="https://maps.app.goo.gl/rK1vutkuJr1v8PtV9"
-        target="_blank"
-        className="direccion"
-        id="salon2"
       >
         ¿CÓMO LLEGAR?
       </a>
@@ -162,8 +180,8 @@ const Mensaje = () => {
         <div className="texto-mensaje">
           <p>¡Que nos acompañes es lo más importante!</p>
           <p style={{ marginTop: "15px" }}>
-            Sí está en tu disposición realizar una muestra de cariño estaremos
-            muy agradecidos.
+            Pero si deseas hacernos un regalo, agradeceremos que sea efectivo,
+            ya que radicaremos en otro estado.
           </p>
         </div>
         <img
@@ -176,6 +194,41 @@ const Mensaje = () => {
   );
 };
 
+const Regalos = () => {
+  return (
+    <div className="container-regalos">
+      <div className="img-regalos">
+        <img src="/regalo.png" alt="Imagen de regalo" />
+      </div>
+      <div className="text-regalos">
+        <p style={{ fontWeight: "bold" }}>Banco Azteca</p>
+        <p>
+          Número de cuenta:{" "}
+          <span style={{ fontWeight: "bold" }}>61151305500541</span>
+        </p>
+        <p>
+          Número de tarjeta:{" "}
+          <span style={{ fontWeight: "bold" }}>4027666116275792</span>
+        </p>
+        <p>Berenice García García.</p>
+      </div>
+    </div>
+  );
+};
+
+const Padres = () => {
+  return (
+    <div className="container-padres">
+      <p>Con la bendición de Jehová y en presencia de nuestros padres</p>
+      <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
+      <span>Francisco Jiménez Luna</span>
+      <span>Maria Isabel moreno longoria</span>
+      <span>Gloria María García Cabrera</span>
+      <img src="/division.png" alt="" />
+    </div>
+  );
+};
+
 const Vestimenta = () => {
   return (
     <div className="container-vestimenta">
@@ -183,6 +236,7 @@ const Vestimenta = () => {
       <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
       <img id="img-vestimenta" src="/formal.jpg" alt="" />
       <span>Formal</span>
+      <span>(1 Timoteo 2:9)</span>
       <img src="/division.png" alt="" />
     </div>
   );
@@ -193,13 +247,10 @@ const Anuncio = () => {
     <div className="container-anuncio">
       <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
       <p>
-        PARA PERMITIR QUE TODOS LOS INVITADOS INCLUIDOS LOS PADRES LA PASEN BIEN
-        EN EL EVENTO, HEMOS ELEGIDO QUE EL DÍA DE NUESTRO MATRIMONIO SEA
-        <strong> SOLO PARA ADULTOS</strong>.
-      </p>
-      <p>
-        RESPETUOSAMENTE
-        <strong> NO NIÑOS</strong>.
+        Nos encantaría contar con su presencia en nuestra boda, que será una
+        ocasión especial solo para adultos. <strong>NO</strong> contaremos con
+        asientos para niños ni algún programa, le agradecemos de antemano su
+        comprensión.
       </p>
       <img src="/division.png" alt="" />
     </div>
@@ -210,13 +261,10 @@ const Redes = () => {
   return (
     <div className="container-redes">
       <div className="card">
-        <span className="texto-redes hashtag">
-          #JoelyDayana
-        </span>
         <img src="/camera.webp" alt="" />
         <span className="texto-redes">
-          Comparte con nosotros todas tus fotografías del evento usando el
-          siguiente #hashtag
+          Comparte con nosotros todas tus fotografías del evento usando la
+          siguiente aplicación.
         </span>
       </div>
     </div>

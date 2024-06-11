@@ -27,18 +27,12 @@ export const Historia = ({ imagen }) => {
           </div>
           <img src={JD} alt="logo" />
           <p>
-            En el trayecto de la vida descubrimos un capítulo que nos ha llenado
-            de alegría y amor. A través de los de esta travesia, hemos tejido
-            juntos una historia que nos llena de sonrisas cada vez que
-            recordamos.
+            El amor es lo que nos une, la felicidad es lo que nos mantiene
+            juntos. ¡Únanse a nosotros en nuestra boda y celebremos el amor!
           </p>
-          <p>
-            A ti, querido invitado, te extendemos nuestro agradecimiento por ser
-            parte de esta historia. Tu interés nos alegra y nos inspira a seguir
-            escribiendo nuevos capítulos de felicidad.
-          </p>
+          
           <p>Con amor y gratitud,</p>
-          <p>Joel y Dayana</p>
+          <p>Abelardo y Berenice</p>
         </div>
       </div>
     </>

@@ -27,18 +27,48 @@ function App() {
 
     setFamilyId(id)
 
-    apiwedding.obtenerFamiliaInfo(id).then((result) => {
+    /* apiwedding.obtenerFamiliaInfo(id).then((result) => {
       if (!result.ok) {
         setFamilyId('')
         throw new Error(`Error al obtener información de la familia - Código: ${result.status}`);
       } else {
         result.json().then(json => {
+          console.log(json);
           setConfirmacionInfo(json)
         });
       }
     }).catch((error) => {
       console.error("Error al obtener datos del backend:", error);
-    })
+    }) */
+
+    let json = {
+      "_id": "656cbb982282d89a901cdc44",
+      "titulo": "Fam. Silva Ruiz",
+      "saludo": "Nos encantaria verlos en esta noche especial",
+      "celular": 6672246499,
+      "confirmado": false,
+      "invitados": [
+        {
+            "_id": "1",
+            "nombre": "Joel Silva",
+            "asiste": true,
+            "enEvento": true,
+            "mesa": "novios"
+        },
+        {
+          "_id": "2",
+          "nombre": "Dayana de Silva",
+          "asiste": true,
+          "enEvento": true,
+          "mesa": "novios"
+      }
+    ],
+      "invitadosConfirmados": [
+         
+      ]
+  }
+
+  setConfirmacionInfo(json);
 
 
   }, []);
