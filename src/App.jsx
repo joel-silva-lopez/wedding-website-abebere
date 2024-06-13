@@ -106,13 +106,6 @@ function App() {
     <div onDragStart={handleDragStart}>
       
         <div className={`container-logo ${!(bienvenida && imagenesCargadas) ? 'oculto':''}`}>
-          <img
-            src="/JD_logo.png"
-            className="logo-carga"
-            // onClick={() => {
-            //   setBienvenida(!bienvenida);
-            // }}
-          ></img>
         </div>
       
         <div className={`container-general ${bienvenida && imagenesCargadas ? 'oculto':''}`}>

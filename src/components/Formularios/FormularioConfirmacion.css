@@ -22,7 +22,7 @@
 }
 
 #numeroPases {
-  color: var(--dorado);
+  color: #a68d4b;
   font-size: 20.28vw;
   text-shadow: 0 0 5px #000;
 }
@@ -45,13 +45,13 @@
 }
 
 .btn.primary:hover {
-  background: rgba(78,56,92, 0.6);
+  background: rgba(182, 117, 32, 0.6);
 }
 
 .btn:hover,
 .btn:active {
   border-color: #fff;
-  background: rgba(230, 230, 230, 0.6);
+  background: rgba(182, 117, 32, 0.6);
   transition-duration: 1s;
 }
 
@@ -62,7 +62,7 @@
 .marco-formulario {
   background: #fff;
   border-radius: 5px;
-  border: 1px var(--dorado) solid;
+  border: 1px #a68d4b solid;
 }
 
 .texto-formulario.nombres {
@@ -72,13 +72,13 @@
 }
 
 .texto-formulario.dorado {
-  color: var(--dorado);
+  color: #a68d4b;
   text-shadow: 0 0 2px #aaa;
 }
 
 .texto-formulario input[type="checkbox"] {
   margin-right: 1.14vw;
-  border: 2px solid #4e385c; /* Cambia el color del borde según tus preferencias */
+  border: 2px solid #a68d4b; /* Cambia el color del borde según tus preferencias */
   border-radius: 4px;
 }
 
@@ -87,7 +87,7 @@
   font-size: 5.71vw;
   text-align: center;
   outline: none;
-  border-color: #4e385c;
+  border-color: #a68d4b;
   border-radius: 5px;
   transition: border-color 1s;
 }
@@ -104,7 +104,7 @@
 
 .loader {
   border: 8px solid #f3f3f3; /* Light gray border */
-  border-top: 8px solid #4e385c; /* Blue border */
+  border-top: 8px solid #a68d4b; /* Blue border */
   border-radius: 50%;
   width: 7.14vw;
   height: 7.14vw;
@@ -123,7 +123,7 @@
 .atencion-clientes {
   padding: 10px 20px;
   color: #000; /* Color del texto */
-  background-color: var(--dorado); /* Color de fondo */
+  background-color: #a68d4b; /* Color de fondo */
   border-radius: 10px; /* Esquinas redondeadas */
   text-decoration: none; /* Eliminar subrayado predeterminado de los enlaces */
   font-weight: bold; /* Texto en negrita */

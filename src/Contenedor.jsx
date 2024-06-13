@@ -24,12 +24,16 @@ export const Contenedor = ({ confirmacionInfo, setConfirmacionInfo }) => {
             <Cronometro targetDate={new Date("2024-10-25 16:00:00")} />
           </div>
 
+          <img
+            style={{ marginTop: "-15%" }}
+            src="/separacion.png"
+            alt="Separacion"
+          />
+
           <Saludos
             strSaludos={confirmacionInfo?.saludo}
             strTitulo={confirmacionInfo?.titulo}
           />
-
-          <img src="/separacion.png" alt="Separacion" />
 
           <Padres />
 
@@ -56,13 +60,12 @@ export const Contenedor = ({ confirmacionInfo, setConfirmacionInfo }) => {
 
           <div className="webshoot">
             <img
-            style={{ backgroundColor: "#fff", width: '60%' }}
-            src="/webshoot.jpg"
-            alt=""
-          />
-
+              style={{ backgroundColor: "#fff", width: "60%" }}
+              src="/webshoot.jpg"
+              alt=""
+            />
           </div>
-          
+
           <img src="/nosotros.jpg" alt="Fotos de los novios" />
 
           <div id="footer">
@@ -100,7 +103,7 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
         alert(`Error al confirmar la invitación - error: ${error}`);
       }); */
 
-      setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
+    setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
   };
 
   return (
@@ -145,12 +148,9 @@ const Saludos = ({ strTitulo, strSaludos }) => {
   }, [isIntersecting]);
 
   return (
-    <div className="contenedor-imagen" ref={saludo}>
-      <img src="/invitado.png" alt="Saludos a Invitado" />
-      <div>
-        <span className="texto-invitado titulo-invitado">{strTitulo}</span>
-        <span className="texto-invitado saludo-invitado">{strSaludos}</span>
-      </div>
+    <div className="contenedor-saludos" ref={saludo}>
+      <span className="texto-invitado titulo-invitado">{strTitulo}</span>
+      <span className="texto-invitado saludo-invitado">{strSaludos}</span>
     </div>
   );
 };
@@ -176,19 +176,14 @@ const Mensaje = () => {
     <div className="container-mensaje">
       <img src="/mensaje-marco.png" alt="" />
       <div className="container-texto-mensaje">
-        <img src="/ramas.png" alt="ramas bontias" />
         <div className="texto-mensaje">
-          <p>¡Que nos acompañes es lo más importante!</p>
+          <p>¡Que nos acompañen es lo más importante!</p>
           <p style={{ marginTop: "15px" }}>
-            Pero si deseas hacernos un regalo, agradeceremos que sea efectivo,
-            ya que radicaremos en otro estado.
+            Pero si desean hacernos un regalo, agradeceremos que sea efectivo,
+            ya que radicaremos en otro estado, muchas gracias por tu
+            generosidad.
           </p>
         </div>
-        <img
-          src="/ramas.png"
-          alt="ramas bontias"
-          style={{ transform: "scaleY(-1)" }}
-        />
       </div>
     </div>
   );
@@ -220,11 +215,9 @@ const Padres = () => {
   return (
     <div className="container-padres">
       <p>Con la bendición de Jehová y en presencia de nuestros padres</p>
-      <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
       <span>Francisco Jiménez Luna</span>
       <span>Maria Isabel moreno longoria</span>
       <span>Gloria María García Cabrera</span>
-      <img src="/division.png" alt="" />
     </div>
   );
 };
@@ -233,26 +226,46 @@ const Vestimenta = () => {
   return (
     <div className="container-vestimenta">
       <span>Código de Vestimenta</span>
-      <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
       <img id="img-vestimenta" src="/formal.jpg" alt="" />
-      <span>Formal</span>
+      <span>
+        <strong>Formal</strong>
+      </span>
       <span>(1 Timoteo 2:9)</span>
-      <img src="/division.png" alt="" />
     </div>
   );
 };
 
 const Anuncio = () => {
+
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const anuncio = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    });
+    observer.observe(anuncio.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isIntersecting && !visible) {
+      anuncio.current.querySelectorAll("p").forEach((element) => {
+        element.classList.add("visible");
+      });
+      setVisible(true);
+    }
+  }, [isIntersecting]);
+
   return (
-    <div className="container-anuncio">
-      <img src="/division.png" alt="" style={{ transform: "scaleY(-1)" }} />
-      <p>
+    <div className="container-anuncio" ref={anuncio}>
+      <p className="anuncio">
         Nos encantaría contar con su presencia en nuestra boda, que será una
         ocasión especial solo para adultos. <strong>NO</strong> contaremos con
         asientos para niños ni algún programa, le agradecemos de antemano su
         comprensión.
       </p>
-      <img src="/division.png" alt="" />
     </div>
   );
 };
