@@ -26,7 +26,7 @@
   align-items: center;
   justify-items: center;
   position: absolute;
-  background-color: #a68d4b;
+  background-color: #548eb4;
   left: 95%;
   box-sizing: border-box;
   width: 100%;
@@ -39,7 +39,12 @@
   & p {
     font-size: 4.347vw;
     text-align: justify;
-    color: #fff;
+    color: #f1f1f1;
+    text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000;
   }
 
   & > img {
@@ -90,14 +95,14 @@
 @media (min-width: 701px) {
 
   .historia {
-    padding: 0 141.900px;
+    padding: 0 81.900px;
 
     & p {
-      font-size: 30.475px;
+      font-size: 33.475px;
     }
   
     & > img {
-      max-width: 121.9px;
+      max-width: 90px;
     }
   
   }

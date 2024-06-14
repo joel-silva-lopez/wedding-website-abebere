@@ -30,6 +30,8 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 5;
+  position: fixed;
+  background-color: #fff;
 }
 .tooltip {
   position: absolute;

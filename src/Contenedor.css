@@ -5,6 +5,12 @@
   --dorado: #000;
 }
 
+.vivaldi {
+  font-family: Vivaldi;
+  letter-spacing: 3px;
+  color: #a68d4b;
+}
+
 .background-image {
   position: fixed;
   top: 0;
@@ -68,6 +74,11 @@
   font-size: 8vw;
   opacity: 0;
   transition: opacity 3s;
+}
+
+.titulo {
+  font-weight: bold;
+  font-size: 7vw;
 }
 
 .saludo-invitado {
@@ -198,8 +209,8 @@
   flex-direction: column;
   align-items: center;
   justify-items: stretch;
-  gap: 30px;
-  padding-bottom: 50px;
+  gap: 35px;
+  padding-bottom: 100px;
   padding-top: 100px;
 
   & #img-padres {
@@ -212,7 +223,7 @@
   }
 
   & p {
-    width: 50%;
+    width: 80%;
   }
 
   & span {
@@ -318,6 +329,10 @@
 
   .titulo-invitado {
     font-size: 56px;
+  }
+
+  .titulo {
+    font-size: 49px;
   }
 
   .saludo-invitado {

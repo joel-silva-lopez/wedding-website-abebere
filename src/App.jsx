@@ -90,7 +90,7 @@ function App() {
 
     Promise.all(promesasCarga)
       .then(() => setImagenesCargadas(true))
-      .catch((error) => {console.error("Error al cargar imágenes:", error); setImagenesCargadas(true);});
+      .catch((error) => {alert("Hay elementos que no se pudieron cargar"); setImagenesCargadas(true);});
 
     // Limpia los eventos al desmontar el componente
     return () => {
@@ -108,10 +108,8 @@ function App() {
         <div className={`container-logo ${!(bienvenida && imagenesCargadas) ? 'oculto':''}`}>
         </div>
       
-        <div className={`container-general ${bienvenida && imagenesCargadas ? 'oculto':''}`}>
-          {familyId ? (<>
-            <Contenedor Contenedor confirmacionInfo={confirmacionInfo} setConfirmacionInfo={setConfirmacionInfo}></Contenedor></>) : (<Error404 />)}
-
+        <div>
+            <Contenedor Contenedor confirmacionInfo={confirmacionInfo} setConfirmacionInfo={setConfirmacionInfo}></Contenedor>
         </div>
       
     </div >

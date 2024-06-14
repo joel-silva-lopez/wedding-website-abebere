@@ -109,6 +109,7 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
   return (
     <div className="contenedor-formulario">
       <img src="/formulario.png" alt="Bienvenida" />
+
       {!confirmacionInfo.confirmado ? (
         <FormularioConfirmacion
           setConfirmacionInfo={setConfirmacionInfo}
@@ -214,7 +215,10 @@ const Regalos = () => {
 const Padres = () => {
   return (
     <div className="container-padres">
-      <p>Con la bendición de Jehová y en presencia de nuestros padres</p>
+      <p className="vivaldi titulo" style={{ fontWeight: "normal" }}>
+        {" "}
+        Con la bendición de Jehová y en presencia de nuestros padres
+      </p>
       <span>Francisco Jiménez Luna</span>
       <span>Maria Isabel moreno longoria</span>
       <span>Gloria María García Cabrera</span>
@@ -225,7 +229,9 @@ const Padres = () => {
 const Vestimenta = () => {
   return (
     <div className="container-vestimenta">
-      <span>Código de Vestimenta</span>
+      <span className="titulo" style={{ color: "#000" }}>
+        <strong>Código de Vestimenta</strong>
+      </span>
       <img id="img-vestimenta" src="/formal.jpg" alt="" />
       <span>
         <strong>Formal</strong>
@@ -236,7 +242,6 @@ const Vestimenta = () => {
 };
 
 const Anuncio = () => {
-
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [visible, setVisible] = useState(false);
   const anuncio = useRef(null);

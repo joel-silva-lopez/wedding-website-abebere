@@ -1,17 +1,19 @@
 import { useState } from "react";
 import "./Historia.css";
 import JD from "/JD_logo.png";
+
 export const Historia = ({ imagen }) => {
   const [desplegado, setDesplegado] = useState(false);
 
   return (
     <>
       <div className="container-historia">
-        <img
-          className="imagen-historia"
-          src={imagen}
-          alt="Imagen Para contar una historia"
-        />
+          <img
+            className="imagen-historia"
+            src={imagen}
+            alt="Imagen Para contar una historia"
+          />
+
         <div className={`historia ${desplegado ? "desplegado" : ""}`}>
           <div
             className={`desplegar-historia ${desplegado ? "desplegado" : ""}`}
@@ -19,19 +21,18 @@ export const Historia = ({ imagen }) => {
               setDesplegado(!desplegado);
             }}
           >
-            <img
-              id="flecha"
-              className={`${desplegado ? "desplegado" : ""}`}
-              src="/flecha.png"
-            />
+              <img
+                id="flecha"
+                className={`${desplegado ? "desplegado" : ""}`}
+                src="/flecha.png"
+              />
           </div>
-          <img src={JD} alt="logo" />
           <p>
-            El amor es lo que nos une, la felicidad es lo que nos mantiene
-            juntos. ¡Únanse a nosotros en nuestra boda y celebremos el amor!
+            ¡Advertencia! Nuestra boda puede contener excesivas cantidades de
+            amor, risas y baile. Les rogamos asistir bajo su propio riesgo y
+            diversión garantizada.
           </p>
-          
-          <p>Con amor y gratitud,</p>
+
           <p>Abelardo y Berenice</p>
         </div>
       </div>
