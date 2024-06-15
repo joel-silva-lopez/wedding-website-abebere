@@ -11,14 +11,14 @@ function App() {
     }
   };
 
-  const [bienvenida, setBienvenida] = useState(true);
+  // const [bienvenida, setBienvenida] = useState(true);
   const [familyId, setFamilyId] = useState('')
   const [confirmacionInfo, setConfirmacionInfo] = useState({});
 
   useEffect(() => {
-    setTimeout(() => {
+    /* setTimeout(() => {
       if (bienvenida) setBienvenida(!bienvenida);
-    }, 3000);
+    }, 3000); */
 
     const url = new URL(window.location.href);
     const id = url.searchParams.get('id');
@@ -77,7 +77,7 @@ function App() {
 
   useEffect(() => {
     const imagenes = Array.from(document.images); // Obtiene todas las imágenes
-
+    
     const promesasCarga = imagenes.map((imagen) => {
       return new Promise((resolve) => {
         if (imagen.complete) {
@@ -104,12 +104,9 @@ function App() {
 
   return (
     <div onDragStart={handleDragStart}>
-      
-        <div className={`container-logo ${!(bienvenida && imagenesCargadas) ? 'oculto':''}`}>
-        </div>
-      
-        <div>
-            <Contenedor Contenedor confirmacionInfo={confirmacionInfo} setConfirmacionInfo={setConfirmacionInfo}></Contenedor>
+            
+        <div className={`${!imagenesCargadas ? 'oculto':''}`}>
+            <Contenedor  Contenedor confirmacionInfo={confirmacionInfo} setConfirmacionInfo={setConfirmacionInfo}></Contenedor>
         </div>
       
     </div >
