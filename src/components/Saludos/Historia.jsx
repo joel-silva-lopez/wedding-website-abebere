@@ -27,8 +27,11 @@ export const Historia = ({ imagen }) => {
                 src="/flecha.png"
               />
           </div>
+
+          <p style={{color: 'red'}}><strong>¡Advertencia!</strong> </p>
+
           <p>
-            ¡Advertencia! Nuestra boda puede contener excesivas cantidades de
+            Nuestra boda puede contener excesivas cantidades de
             amor, risas y baile. Les rogamos asistir bajo su propio riesgo y
             diversión garantizada.
           </p>
