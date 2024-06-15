@@ -56,6 +56,8 @@ export const Contenedor = ({ confirmacionInfo, setConfirmacionInfo }) => {
             setConfirmacionInfo={setConfirmacionInfo}
           />
 
+         <Alojamiento/>
+
           <Redes />
 
           <div className="webshoot">
@@ -274,6 +276,41 @@ const Anuncio = () => {
     </div>
   );
 };
+
+const Alojamiento = () => {
+
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const anuncio = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    });
+    observer.observe(anuncio.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isIntersecting && !visible) {
+      anuncio.current.querySelectorAll("span").forEach((element) => {
+        element.classList.add("visible");
+      });
+      setVisible(true);
+    }
+  }, [isIntersecting]);
+
+  return (
+    <div className="container-alojamiento" ref={anuncio}>
+      <p className="titulo" style={{width: '80%'}}>Sugerencia de alojamiento</p>
+      <span className="anuncio">Toca el icono para ver sugerencias</span>
+
+      <a href="https://air.tl/HXqz36Ij" target="_blank">
+        <img src="/Airbnb.png" alt="" />
+      </a>      
+    </div>
+  );
+}
 
 const Redes = () => {
   return (

@@ -322,6 +322,21 @@
   }
 }
 
+.container-alojamiento {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  padding: 50px 0;
+
+  & img {
+    width: 100px;
+  }
+}
+
 @media (min-width: 701px) {
   .main-container {
     max-width: 700px;
