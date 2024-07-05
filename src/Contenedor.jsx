@@ -84,7 +84,7 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
   const sendConfirmacionInfo = () => {
     console.log("Enviando informacion...");
     console.log(confirmacionInfo);
-    /* const response = apiwedding.confirmarInvitacion(confirmacionInfo._id, {
+    const response = apiwedding.confirmarInvitacion(confirmacionInfo._id, {
       celularConfirmado: confirmacionInfo.celularConfirmado,
       invitadosConfirmados: confirmacionInfo.invitadosConfirmados.map(
         (invitado) => invitado._id
@@ -103,9 +103,8 @@ const Formulario = ({ confirmacionInfo, setConfirmacionInfo }) => {
       })
       .catch((error) => {
         alert(`Error al confirmar la invitación - error: ${error}`);
-      }); */
+      });
 
-    setConfirmacionInfo((prev) => ({ ...prev, confirmado: true }));
   };
 
   return (
